@@ -16,19 +16,23 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">روابط سريعة</h3>
             <ul className="space-y-2 text-gray-400">
               <li><Link href="/" className="hover:text-teal-500 transition-colors">الرئيسية</Link></li>
-              <li><Link href="#services" className="hover:text-teal-500 transition-colors">الخدمات</Link></li>
-              <li><Link href="#features" className="hover:text-teal-500 transition-colors">المميزات</Link></li>
-              <li><Link href="#about" className="hover:text-teal-500 transition-colors">من نحن</Link></li>
+              <li><Link href="/universities" className="hover:text-teal-500 transition-colors">الجامعات</Link></li>
+              <li><Link href="/language-institutes" className="hover:text-teal-500 transition-colors">معاهد اللغة</Link></li>
+              <li><Link href="/english-courses" className="hover:text-teal-500 transition-colors">دورات اللغة الإنجليزية</Link></li>
+              <li><Link href="/majors" className="hover:text-teal-500 transition-colors">التخصصات</Link></li>
+              <li><Link href="/contact" className="hover:text-teal-500 transition-colors">سجل الآن</Link></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-lg font-semibold mb-4">خدماتنا</h3>
             <ul className="space-y-2 text-gray-400">
-              <li><Link href="#" className="hover:text-teal-500 transition-colors">القبول الجامعي</Link></li>
-              <li><Link href="#" className="hover:text-teal-500 transition-colors">مساعدة التأشيرة</Link></li>
-              <li><Link href="#" className="hover:text-teal-500 transition-colors">السكن</Link></li>
-              <li><Link href="#" className="hover:text-teal-500 transition-colors">دعم الطلاب</Link></li>
+              <li><Link href="/universities" className="hover:text-teal-500 transition-colors">القبول الجامعي</Link></li>
+              <li><Link href="/language-institutes" className="hover:text-teal-500 transition-colors">معاهد اللغة</Link></li>
+              <li><Link href="/english-courses" className="hover:text-teal-500 transition-colors">دورات اللغة الإنجليزية</Link></li>
+              <li><Link href="/contact#visa" className="hover:text-teal-500 transition-colors">مساعدة التأشيرة</Link></li>
+              <li><Link href="/contact#housing" className="hover:text-teal-500 transition-colors">السكن</Link></li>
+              <li><Link href="/contact#support" className="hover:text-teal-500 transition-colors">دعم الطلاب</Link></li>
             </ul>
           </div>
           

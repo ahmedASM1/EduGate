@@ -120,7 +120,7 @@ export default function FAQ() {
                         className="mt-4"
                       >
                         <Link 
-                          href="/student-registration" 
+                          href="/contact" 
                           className="inline-flex items-center justify-center gap-2 bg-primary-color hover:bg-primary-color/90 text-white py-2 px-4 rounded-lg transition-all duration-200"
                         >
                           <span>سجل الآن للحصول على المزيد من المعلومات</span>

@@ -653,17 +653,18 @@ export default function Home() {
               transition={{ duration: 0.5 }}
             >
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-                <div className="relative h-64 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-color/90 to-primary-color/30 flex items-center justify-center flex-col p-6 text-center">
-                    <h2 className="text-3xl font-bold text-white mb-4 drop-shadow-md">
+                {/* Responsive height and padding for mobile */}
+                <div className="relative h-64 sm:h-64 xs:h-48 min-h-[220px] overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-color/90 to-primary-color/30 flex items-center justify-center flex-col p-4 sm:p-6 text-center">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-4 drop-shadow-md">
                       أبرز التخصصات المتاحة في ماليزيا
                     </h2>
-                    <p className="text-white text-lg max-w-2xl mx-auto mb-8">
+                    <p className="text-white text-base sm:text-lg max-w-xs sm:max-w-2xl mx-auto mb-4 sm:mb-8">
                       اكتشف أكثر من 100 تخصص في مختلف المجالات الأكاديمية والمهنية في الجامعات الماليزية
                     </p>
                     <Link 
                       href="/majors"
-                      className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-color rounded-xl font-bold text-lg shadow-lg hover:bg-gray-100 transition-all duration-300 group"
+                      className="inline-flex items-center justify-center px-4 sm:px-8 py-2 sm:py-4 bg-white text-primary-color rounded-xl font-bold text-base sm:text-lg shadow-lg hover:bg-gray-100 transition-all duration-300 group mt-2"
                     >
                       استكشف كافة التخصصات المتاحة
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -672,26 +673,26 @@ export default function Home() {
                     </Link>
                   </div>
                 </div>
-                <div className="p-6">
-                  <div className="flex flex-wrap gap-4 justify-center items-center">
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <ComputerDesktopIcon className="h-5 w-5 text-primary-color" />
+                <div className="p-4 sm:p-6">
+                  <div className="flex flex-wrap gap-2 sm:gap-4 justify-center items-center text-xs sm:text-base">
+                    <div className="flex items-center gap-1 sm:gap-2 text-gray-600">
+                      <ComputerDesktopIcon className="h-4 w-4 sm:h-5 sm:w-5 text-primary-color" />
                       <span>علوم الحاسوب والتكنولوجيا</span>
                     </div>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <RocketLaunchIcon className="h-5 w-5 text-primary-color" />
+                    <div className="flex items-center gap-1 sm:gap-2 text-gray-600">
+                      <RocketLaunchIcon className="h-4 w-4 sm:h-5 sm:w-5 text-primary-color" />
                       <span>الهندسة والتصميم</span>
                     </div>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <BanknotesIcon className="h-5 w-5 text-primary-color" />
+                    <div className="flex items-center gap-1 sm:gap-2 text-gray-600">
+                      <BanknotesIcon className="h-4 w-4 sm:h-5 sm:w-5 text-primary-color" />
                       <span>إدارة الأعمال والتمويل</span>
                     </div>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <AcademicCapIconSolid className="h-5 w-5 text-primary-color" />
+                    <div className="flex items-center gap-1 sm:gap-2 text-gray-600">
+                      <AcademicCapIconSolid className="h-4 w-4 sm:h-5 sm:w-5 text-primary-color" />
                       <span>الطب والعلوم الصحية</span>
                     </div>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <SparklesIcon className="h-5 w-5 text-primary-color" />
+                    <div className="flex items-center gap-1 sm:gap-2 text-gray-600">
+                      <SparklesIcon className="h-4 w-4 sm:h-5 sm:w-5 text-primary-color" />
                       <span>وغيرها الكثير...</span>
                     </div>
                   </div>

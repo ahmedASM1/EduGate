@@ -56,7 +56,7 @@ export default function Navbar() {
         <div className="flex flex-1 items-center">
           <div className="flex flex-shrink-0 items-center -ml-2 sm:-ml-4">
             <Link href="/" className="flex items-center">
-              <Logo className="h-12 w-auto sm:h-20" />
+              <Logo className="h-16 w-auto sm:h-20" />
             </Link>
           </div>
           <div className="hidden sm:ml-10 sm:flex sm:space-x-8 rtl:space-x-reverse items-center justify-end flex-1">

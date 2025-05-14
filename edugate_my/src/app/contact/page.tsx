@@ -1,10 +1,11 @@
-import Navbar from '@/components/Navbar';
+// import Navbar from '@/components/Navbar';
 import { PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
 
 export default function Contact() {
   return (
     <main className="min-h-screen bg-gray-50">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="relative isolate bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
           <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
@@ -20,8 +21,8 @@ export default function Contact() {
                     <PhoneIcon className="h-7 w-6 text-gray-400" aria-hidden="true" />
                   </dt>
                   <dd>
-                    <a className="hover:text-gray-900" href="https://wa.me/YOUR_WHATSAPP_NUMBER">
-                      واتساب: +60 XX-XXXX-XXXX
+                    <a className="hover:text-gray-900" href="https://wa.me/601163672012">
+                      <span dir="ltr">+601163672012</span>
                     </a>
                   </dd>
                 </div>
@@ -92,6 +93,7 @@ export default function Contact() {
                   إرسال الرسالة
                 </button>
               </div>
+              
             </div>
           </form>
         </div>

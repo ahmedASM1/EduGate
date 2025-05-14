@@ -29,9 +29,9 @@ export default function InstitutionCard({
 
   return (
     <div className="flex flex-col overflow-hidden rounded-lg shadow-lg bg-white">
-      <div className="flex-shrink-0 relative h-48">
+      <div className="flex-shrink-0 relative h-48 bg-white flex items-center justify-center">
         <Image
-          className="w-full object-cover"
+          className="object-contain max-h-full max-w-full"
           src={imageError ? placeholderImage : imageUrl}
           alt={name}
           fill

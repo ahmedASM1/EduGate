@@ -5,7 +5,7 @@ const universities = [
   {
     name: 'جامعة APU',
     description: 'جامعة آسيا باسيفيك للتكنولوجيا والابتكار تعد خياراً مثالياً للراغبين في الحصول على تعليم عالمي يجمع بين الجودة والابتكار',
-    imageUrl: 'https://www.apu.edu.my/sites/default/files/2020-09/apu-campus-day.jpg',
+    imageUrl: '/images/universities/apu-logo.webp',
     link: '/private-universities/apu',
     fees: 'RM 40,000 - RM 80,000',
     duration: '3-4 سنوات'
@@ -13,7 +13,7 @@ const universities = [
   {
     name: 'جامعة تايلورز',
     description: 'واحدة من أفضل الجامعات الخاصة في ماليزيا، معروفة بجودة التعليم والبرامج المتميزة',
-    imageUrl: 'https://www.taylors.edu.my/sites/default/files/2019-05/lakeside-campus-banner.jpg',
+    imageUrl: '/images/universities/taylor-logo.webp',
     link: '/private-universities/taylors',
     fees: 'RM 45,000 - RM 90,000',
     duration: '3-4 سنوات'
@@ -21,7 +21,7 @@ const universities = [
   {
     name: 'جامعة صنواي',
     description: 'جامعة رائدة في مجال التعليم العالي في ماليزيا مع شراكات دولية قوية',
-    imageUrl: 'https://university.sunway.edu.my/sites/default/files/styles/hero_banner/public/2020-03/Sunway%20University%20Campus.jpg',
+    imageUrl: '/images/universities/sunway-logo.webp',
     link: '/private-universities/sunway',
     fees: 'RM 42,000 - RM 85,000',
     duration: '3-4 سنوات'
@@ -29,9 +29,17 @@ const universities = [
   {
     name: 'جامعة UCSI',
     description: 'جامعة متميزة تقدم مجموعة واسعة من البرامج الأكاديمية في مختلف التخصصات',
-    imageUrl: 'https://www.ucsiuniversity.edu.my/sites/default/files/public/2020-03/KL-Campus.jpg',
+    imageUrl: '/images/universities/UCSI-logo.webp',
     link: '/private-universities/ucsi',
     fees: 'RM 38,000 - RM 75,000',
+    duration: '3-4 سنوات'
+  },
+  {
+    name: 'جامعة مالايا',
+    description: 'جامعة مالايا هي أقدم جامعة في ماليزيا وتعد من أفضل الجامعات في آسيا والعالم العربي.',
+    imageUrl: '/images/universities/um-logo.webp',
+    link: '/private-universities/um',
+    fees: 'RM 30,000 - RM 60,000',
     duration: '3-4 سنوات'
   },
   // Add more universities here

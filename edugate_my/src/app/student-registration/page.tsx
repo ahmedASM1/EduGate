@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import { IdentificationIcon } from '@heroicons/react/24/outline';
 
 export default function StudentRegistration() {
   return (

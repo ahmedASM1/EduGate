@@ -13,7 +13,7 @@ const institutes = [
   {
     name: 'معهد EMS',
     description: 'واحد من اقدم المعاهد في ماليزيا لدراسة اللغة الانجليزية في ماليزيا في كوالالمبور يتميز المعهد بجودة التعليم المثالية وكادر من المعلمين الاجانب',
-    imageUrl: 'https://images.unsplash.com/photo-1562774053-701939374585',
+    imageUrl: '/images/institutes/ems-logo.png',
     link: '/language-institutes/ems',
     fees: 'RM 2750 - RM 24550',
     duration: 'شهر - 12 شهر'
@@ -29,7 +29,7 @@ const institutes = [
   {
     name: 'معهد BIG BEN',
     description: 'معهد بيج بن يقدم برامج متنوعة لتعليم اللغة الإنجليزية مع تركيز على المهارات العملية',
-    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7',
+    imageUrl: '/images/institutes/BigBen-logo.png',
     link: '/language-institutes/big-ben',
     fees: 'RM 2700 - RM 23000',
     duration: 'شهر - 12 شهر'

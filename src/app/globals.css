@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,12 +6,25 @@
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
+  --primary-color: #1a73e8;
+  --secondary-color: #34a853;
+  --accent-color: #fbbc05;
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --surface-color: #ffffff;
+  --surface-hover: #f8f9fa;
+  --border-color: #dadce0;
+}
+
+body, html, * {
+  font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', 'Segoe UI', 'Arial', sans-serif !important;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  color: var(--text-primary);
+  background: var(--surface-color);
   direction: rtl;
+  line-height: 1.6;
 }
 
 /* RTL Support */
@@ -25,23 +39,23 @@ body {
 
 @layer components {
   .nav-link {
-    @apply text-gray-600 hover:text-gray-900;
+    @apply text-gray-600 hover:text-primary-color transition-colors duration-200;
   }
 
   .btn-primary {
-    @apply bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 rounded-md;
+    @apply bg-primary-color text-white hover:bg-opacity-90 px-6 py-2.5 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md;
   }
 
   .btn-secondary {
-    @apply bg-gray-100 text-gray-900 hover:bg-gray-200 px-4 py-2 rounded-md;
+    @apply bg-surface-hover text-text-primary hover:bg-opacity-80 px-6 py-2.5 rounded-lg font-medium transition-all duration-200;
   }
 
   .card {
-    @apply bg-white rounded-lg shadow-md overflow-hidden;
+    @apply bg-surface-color rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-border-color;
   }
 
   .card-header {
-    @apply px-6 py-4 border-b border-gray-200;
+    @apply px-6 py-4 border-b border-border-color bg-surface-hover;
   }
 
   .card-body {
@@ -49,23 +63,39 @@ body {
   }
 
   .form-input {
-    @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500;
+    @apply mt-1 block w-full rounded-lg border-border-color shadow-sm focus:border-primary-color focus:ring-primary-color transition-all duration-200;
   }
 
   .form-label {
-    @apply block text-sm font-medium text-gray-700;
+    @apply block text-sm font-medium text-text-secondary mb-1;
+  }
+
+  .whatsapp-button {
+    @apply fixed bottom-8 left-8 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300;
+  }
+
+  .category-card {
+    @apply flex flex-col gap-4 rounded-xl bg-white p-6 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  .category-icon {
+    @apply flex h-12 w-12 items-center justify-center rounded-xl;
+  }
+
+  .program-card {
+    @apply relative overflow-hidden transition-all duration-300;
   }
 
   h1 {
-    @apply text-4xl font-bold md:text-5xl;
+    @apply text-4xl font-bold md:text-5xl lg:text-6xl tracking-tight;
   }
 
   h2 {
-    @apply text-3xl font-bold md:text-4xl;
+    @apply text-3xl font-bold md:text-4xl lg:text-5xl tracking-tight;
   }
 
   h3 {
-    @apply text-2xl font-bold md:text-3xl;
+    @apply text-2xl font-bold md:text-3xl lg:text-4xl tracking-tight;
   }
 
   .container-custom {
@@ -73,11 +103,11 @@ body {
   }
 
   .hover-scale {
-    @apply transition-transform duration-200 ease-in-out hover:scale-105;
+    @apply transition-transform duration-300 ease-in-out hover:scale-105;
   }
 
   .grid-custom {
-    @apply grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3;
+    @apply grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
   }
 
   .section {
@@ -85,7 +115,11 @@ body {
   }
 
   .section-title {
-    @apply text-center mb-12;
+    @apply text-center mb-12 relative;
+  }
+
+  .section-title::after {
+    @apply content-[''] absolute bottom-[-1rem] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-primary-color rounded-full;
   }
 
   .list-custom {
@@ -96,7 +130,23 @@ body {
     @apply flex items-center space-x-4 rtl:space-x-reverse;
   }
 
-  .whatsapp-button {
-    @apply fixed bottom-4 left-4 z-50 bg-green-500 text-white rounded-full p-3 shadow-lg hover:bg-green-600 transition-colors duration-200;
+  .university-card {
+    @apply card hover-scale p-6 flex flex-col items-center text-center;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-primary-color bg-opacity-10 text-primary-color;
+  }
+
+  .badge-secondary {
+    @apply bg-secondary-color bg-opacity-10 text-secondary-color;
+  }
+
+  .badge-accent {
+    @apply bg-accent-color bg-opacity-10 text-accent-color;
   }
 }

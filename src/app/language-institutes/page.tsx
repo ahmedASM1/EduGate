@@ -1,154 +1,273 @@
-import Navbar from '@/components/Navbar';
-import InstitutionCard from '@/components/InstitutionCard';
+'use client';
+
+import InstituteCard from '@/components/InstituteCard';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { BookOpenIcon, AcademicCapIcon } from '@heroicons/react/24/outline';
+import { useState } from 'react';
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
 const institutes = [
   {
-    name: 'معهد شيفيلد',
-    description: 'معهد شيفيلد للغة الإنجليزية يوفر برامج تعليمية متميزة مع خبرة طويلة في تعليم اللغة الإنجليزية',
-    imageUrl: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f',
-    link: '/language-institutes/sheffield',
-    fees: 'RM 2800 - RM 24000',
-    duration: 'شهر - 12 شهر'
-  },
-  {
-    name: 'معهد EMS',
-    description: 'واحد من اقدم المعاهد في ماليزيا لدراسة اللغة الانجليزية في ماليزيا في كوالالمبور يتميز المعهد بجودة التعليم المثالية وكادر من المعلمين الاجانب',
-    imageUrl: 'https://images.unsplash.com/photo-1562774053-701939374585',
-    link: '/language-institutes/ems',
-    fees: 'RM 2750 - RM 24550',
-    duration: 'شهر - 12 شهر'
+    name: 'معهد بيج بن',
+    englishName: 'Big Ben Academy',
+    color: 'bg-red-100',
+    textColor: 'text-red-600',
+    borderColor: 'border-red-300',
+    abbr: 'BIGBEN',
+    imageUrl: '/images/institutes/BigBen-logo.webp',
+    description: 'معهد بيج بن يقدم برامج متنوعة لتعليم اللغة الإنجليزية مع تركيز على المهارات العملية.'
   },
   {
     name: 'معهد برايت',
-    description: 'معهد متخصص في تعليم اللغة الإنجليزية مع منهج تعليمي متطور وبيئة دراسية محفزة',
-    imageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1',
-    link: '/language-institutes/bright',
-    fees: 'RM 2900 - RM 25000',
-    duration: 'شهر - 12 شهر'
+    englishName: 'Bright Language Center',
+    color: 'bg-blue-100',
+    textColor: 'text-blue-600',
+    borderColor: 'border-blue-300',
+    abbr: 'BRIGHT',
+    imageUrl: '/images/institutes/bright-logo.webp',
+    description: 'معهد متخصص في تعليم اللغة الإنجليزية مع منهج تعليمي متطور وبيئة دراسية محفزة.'
   },
   {
-    name: 'معهد BIG BEN',
-    description: 'معهد بيج بن يقدم برامج متنوعة لتعليم اللغة الإنجليزية مع تركيز على المهارات العملية',
-    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7',
-    link: '/language-institutes/big-ben',
-    fees: 'RM 2700 - RM 23000',
-    duration: 'شهر - 12 شهر'
+    name: 'معهد IABT الأكاديمية الدولية',
+    englishName: 'IABT International Academy',
+    color: 'bg-green-100',
+    textColor: 'text-green-600',
+    borderColor: 'border-green-300',
+    abbr: 'IABT',
+    imageUrl: '/images/institutes/IABT-logo.webp',
+    description: 'الأكاديمية الدولية للأعمال والتكنولوجيا تقدم برامج لغة إنجليزية عالية الجودة.'
   },
   {
-    name: 'معهد Awesome',
-    description: 'معهد أوسوم يوفر تجربة تعليمية فريدة مع أساليب تدريس حديثة وتفاعلية',
-    imageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655',
-    link: '/language-institutes/awesome',
-    fees: 'RM 2850 - RM 24500',
-    duration: 'شهر - 12 شهر'
+    name: 'معهد EMS',
+    englishName: 'EMS Language Centre',
+    color: 'bg-orange-100',
+    textColor: 'text-orange-600',
+    borderColor: 'border-orange-300',
+    abbr: 'EMS',
+    imageUrl: '/images/institutes/ems-logo.webp',
+    description: 'واحد من أقدم معاهد اللغة الإنجليزية في ماليزيا مع كادر من المعلمين الأجانب.'
   },
   {
-    name: 'معهد وول ستريت',
-    description: 'معهد متخصص في تعليم اللغة الإنجليزية للأعمال والتجارة',
-    imageUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644',
-    link: '/language-institutes/wall-street',
-    fees: 'RM 3000 - RM 26000',
-    duration: 'شهر - 12 شهر'
-  },
-  {
-    name: 'معهد ELS',
-    description: 'معهد متميز لتعليم اللغة الإنجليزية في قلب كوالالمبور',
-    imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4',
-    link: '/language-institutes/els',
-    fees: 'RM 3000 - RM 25000',
-    duration: 'شهر - 12 شهر'
-  },
-  {
-    name: 'معهد كاليفورنيا',
-    description: 'معهد يجمع بين الأساليب الأمريكية الحديثة في تعليم اللغة الإنجليزية والخبرة الماليزية',
-    imageUrl: 'https://images.unsplash.com/photo-1515923152115-758a6b16f35e',
-    link: '/language-institutes/california',
-    fees: 'RM 2950 - RM 25500',
-    duration: 'شهر - 12 شهر'
-  },
-  {
-    name: 'معهد ELEC',
-    description: 'معهد متخصص في تعليم اللغة الإنجليزية مع التركيز على المهارات الإلكترونية والتقنية',
-    imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4',
-    link: '/language-institutes/elec',
-    fees: 'RM 2800 - RM 24000',
-    duration: 'شهر - 12 شهر'
-  },
-  {
-    name: 'معهد إيريكان',
-    description: 'معهد يقدم برامج متخصصة في تعليم اللغة الإنجليزية مع منهج أمريكي معتمد',
-    imageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1',
-    link: '/language-institutes/erican',
-    fees: 'RM 2900 - RM 25000',
-    duration: 'شهر - 12 شهر'
-  },
-  {
-    name: 'معهد ELC',
-    description: 'مركز متخصص في تعليم اللغة الإنجليزية مع برامج مكثفة ومرنة',
-    imageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655',
-    link: '/language-institutes/elc',
-    fees: 'RM 2750 - RM 23500',
-    duration: 'شهر - 12 شهر'
-  },
-  {
-    name: 'معهد Excel',
-    description: 'معهد يركز على التميز في تعليم اللغة الإنجليزية مع برامج متخصصة للطلاب',
-    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7',
-    link: '/language-institutes/excel',
-    fees: 'RM 2800 - RM 24000',
-    duration: 'شهر - 12 شهر'
-  },
-  {
-    name: 'معهد IABT',
-    description: 'معهد دولي متخصص في تعليم اللغة الإنجليزية للأعمال والتكنولوجيا',
-    imageUrl: 'https://images.unsplash.com/photo-1562774053-701939374585',
-    link: '/language-institutes/iabt',
-    fees: 'RM 3100 - RM 26500',
-    duration: 'شهر - 12 شهر'
-  },
-  {
-    name: 'معهد ELIT',
-    description: 'معهد النخبة لتعليم اللغة الإنجليزية مع برامج متقدمة ومتخصصة',
-    imageUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644',
-    link: '/language-institutes/elit',
-    fees: 'RM 3000 - RM 25500',
-    duration: 'شهر - 12 شهر'
+    name: 'أكاديمية شيفيلد',
+    englishName: 'Sheffield Academy',
+    color: 'bg-teal-100',
+    textColor: 'text-teal-600',
+    borderColor: 'border-teal-300',
+    abbr: 'SHEFFIELD',
+    imageUrl: '/images/institutes/sheffield-logo.webp',
+    description: 'أكاديمية شيفيلد توفر برامج تعليمية متميزة وخبرة طويلة في تعليم اللغة الإنجليزية.'
   },
   {
     name: 'معهد ستراتفورد',
-    description: 'يقدم برامج متنوعة لتعليم اللغة الإنجليزية مع مدرسين ذوي خبرة',
-    imageUrl: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f',
-    link: '/language-institutes/stratford',
-    fees: 'RM 2800 - RM 24000',
-    duration: 'شهر - 12 شهر'
+    englishName: 'Stratford Language Centre',
+    color: 'bg-purple-100',
+    textColor: 'text-purple-600',
+    borderColor: 'border-purple-300',
+    abbr: 'STRATFORD',
+    imageUrl: '/images/institutes/StratfordLogo.png',
+    description: 'يقدم برامج متنوعة لتعليم اللغة الإنجليزية مع مدرسين ذوي خبرة.'
+  },
+  {
+    name: 'معهد أوسم',
+    englishName: 'Awesome Institute',
+    color: 'bg-orange-100',
+    textColor: 'text-orange-600',
+    borderColor: 'border-orange-300',
+    abbr: 'AWESOME',
+    imageUrl: '/images/institutes/Awesome-logo.png',
+    description: 'معهد أوسم يوفر تجربة تعليمية فريدة مع أساليب تدريس حديثة وتفاعلية.'
+  },
+  {
+    name: 'معهد بريتانيا',
+    englishName: 'Britannia Institute',
+    color: 'bg-yellow-100',
+    textColor: 'text-yellow-600',
+    borderColor: 'border-yellow-300',
+    abbr: 'BRITANNIA',
+    imageUrl: '/images/institutes/Britannia-logo.webp',
+    description: 'معهد بريتانيا يقدم برامج مكثفة لتطوير مهارات اللغة الإنجليزية.'
+  },
+  {
+    name: 'معهد اكسل',
+    englishName: 'Excel',
+    color: 'bg-indigo-100',
+    textColor: 'text-indigo-600',
+    borderColor: 'border-indigo-300',
+    abbr: 'EXCEL',
+    imageUrl: '/images/institutes/excel-logo.png',
+    description: 'معهد اكسل يركز على التميز في تعليم اللغة الإنجليزية مع برامج متخصصة.'
+  },
+  {
+    name: 'معهد ELC الاسترالي',
+    englishName: 'ELC Australian',
+    color: 'bg-pink-100',
+    textColor: 'text-pink-600',
+    borderColor: 'border-pink-300',
+    abbr: 'ELC',
+    imageUrl: '/images/institutes/elc-logo.webp',
+    description: 'مركز متخصص في تعليم اللغة الإنجليزية مع برامج مكثفة ومرنة.'
+  },
+  {
+    name: 'معهد ELEC',
+    englishName: 'ELEC',
+    color: 'bg-cyan-100',
+    textColor: 'text-cyan-600',
+    borderColor: 'border-cyan-300',
+    abbr: 'ELEC',
+    imageUrl: '/images/institutes/elec-logo.webp',
+    description: 'معهد ELEC يركز على تعليم اللغة الإنجليزية مع التركيز على المهارات الإلكترونية والتقنية.'
+  },
+  {
+    name: 'معهد ELS',
+    englishName: 'ELS',
+    color: 'bg-blue-100',
+    textColor: 'text-blue-600',
+    borderColor: 'border-blue-300',
+    abbr: 'ELS',
+    imageUrl: '/images/institutes/els-logo.webp',
+    description: 'معهد ELS يقدم برامج لغة إنجليزية معتمدة دولياً.'
+  },
+  {
+    name: 'معهد Elit',
+    englishName: 'Elit',
+    color: 'bg-violet-100',
+    textColor: 'text-violet-600',
+    borderColor: 'border-violet-300',
+    abbr: 'ELIT',
+    imageUrl: '/images/institutes/elit-logo.webp',
+    description: 'معهد النخبة لتعليم اللغة الإنجليزية مع برامج متقدمة ومتخصصة.'
+  },
+  {
+    name: 'معهد wall street',
+    englishName: 'Wall Street',
+    color: 'bg-emerald-100',
+    textColor: 'text-emerald-600',
+    borderColor: 'border-emerald-300',
+    abbr: 'WALL STREET',
+    imageUrl: '/images/institutes/wse-logo.webp',
+    description: 'معهد متخصص في تعليم اللغة الإنجليزية للأعمال والتجارة.'
+  },
+  {
+    name: 'معهد كاليفورنيا',
+    englishName: 'Californiakl',
+    color: 'bg-amber-100',
+    textColor: 'text-amber-600',
+    borderColor: 'border-amber-300',
+    abbr: 'CALIFORNIA',
+    imageUrl: '/images/institutes/californiakl-logo.webp',
+    description: 'معهد يجمع بين الأساليب الأمريكية الحديثة والخبرة الماليزية.'
+  },
+  {
+    name: 'معهد Erican',
+    englishName: 'Erican',
+    color: 'bg-rose-100',
+    textColor: 'text-rose-600',
+    borderColor: 'border-rose-300',
+    abbr: 'ERICAN',
+    imageUrl: '/images/institutes/erican-logo.webp',
+    description: 'معهد يقدم برامج متخصصة في تعليم اللغة الإنجليزية مع منهج أمريكي معتمد.'
   }
 ];
 
 export default function LanguageInstitutes() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedInstitute, setSelectedInstitute] = useState('');
+
+  // Collect unique English names for filter
+  const uniqueInstitutes = Array.from(new Set(institutes.map(i => i.englishName)));
+
+  // Filtered institutes
+  const filteredInstitutes = institutes.filter(inst => {
+    const matchesSearch =
+      inst.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      inst.englishName.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesFilter = !selectedInstitute || inst.englishName === selectedInstitute;
+    return matchesSearch && matchesFilter;
+  });
+
   return (
-    <main className="min-h-screen bg-gray-50">
-      <Navbar />
-      <div className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              معاهد اللغة الإنجليزية في ماليزيا
-            </h2>
-            <p className="mt-2 text-lg leading-8 text-gray-600">
-              اختر من بين أفضل معاهد اللغة الإنجليزية في ماليزيا لتطوير مهاراتك اللغوية
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="bg-white py-16 border-b"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-gray-900 mb-3">معاهد اللغة الإنجليزية</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Discover Malaysia's top English language institutes
             </p>
           </div>
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            {institutes.map((institute) => (
-              <InstitutionCard
-                key={institute.name}
-                {...institute}
-                type="institute"
-              />
-            ))}
+        </div>
+      </motion.div>
+
+      {/* Search & Filter Bar */}
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 mb-10">
+        <div className="flex flex-col sm:flex-row items-stretch gap-3 bg-white/80 rounded-2xl shadow-lg p-3 sm:p-4 border border-gray-100">
+          {/* Filter Dropdown */}
+          <div className="flex items-center gap-2">
+            <label className="text-blue-600 font-bold whitespace-nowrap cursor-pointer" htmlFor="institute-filter">:تصفية</label>
+            <select
+              id="institute-filter"
+              className="rounded-xl border border-gray-200 py-2 px-4 text-base text-gray-900 bg-white shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 min-w-[180px]"
+              value={selectedInstitute}
+              onChange={e => setSelectedInstitute(e.target.value)}
+            >
+              <option value="">الكل</option>
+              {uniqueInstitutes.map(name => (
+                <option key={name} value={name}>{name}</option>
+              ))}
+            </select>
+          </div>
+          {/* Search Input */}
+          <div className="flex-1 flex items-center bg-white rounded-xl shadow-sm px-3">
+            <svg className="h-5 w-5 text-blue-500 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+            <input
+              type="text"
+              className="w-full bg-transparent border-0 focus:ring-0 text-gray-900 placeholder:text-gray-400 py-3 text-base"
+              placeholder="ابحث عن معهد..."
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
+            />
           </div>
         </div>
       </div>
-    </main>
+
+      {/* Institutes Grid */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            {filteredInstitutes.map((institute, index) => (
+              <motion.div
+                key={institute.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="h-full"
+              >
+                <InstituteCard institute={institute} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 } 

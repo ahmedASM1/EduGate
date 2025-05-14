@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#022E64;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0055B8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="url(#grad1)" />
+  <circle cx="60" cy="60" r="52" fill="white" />
+  <circle cx="60" cy="60" r="48" fill="url(#grad1)" />
+  <circle cx="60" cy="60" r="44" fill="white" />
+  
+  <!-- Building Symbol -->
+  <path d="M60 25 L85 45 L85 85 L35 85 L35 45 Z" fill="none" stroke="url(#grad1)" stroke-width="3" />
+  <rect x="53" y="70" width="14" height="15" fill="url(#grad1)" />
+  <rect x="45" y="50" width="8" height="10" fill="url(#grad1)" />
+  <rect x="67" y="50" width="8" height="10" fill="url(#grad1)" />
+  <rect x="45" y="65" width="8" height="10" fill="url(#grad1)" />
+  <rect x="67" y="65" width="8" height="10" fill="url(#grad1)" />
+  
+  <!-- Book on top -->
+  <path d="M50 25 L70 25 L70 35 L60 40 L50 35 Z" fill="url(#grad1)" />
+  
+  <!-- Text at bottom -->
+  <text x="60" y="100" font-family="Arial, sans-serif" font-size="7" font-weight="bold" text-anchor="middle" fill="url(#grad1)">MINISTRY OF EDUCATION MALAYSIA</text>
+</svg> 
